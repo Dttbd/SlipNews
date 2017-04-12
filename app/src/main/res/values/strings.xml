@@ -1,0 +1,146 @@
+<resources>
+    <!--draw-->
+    <string name="app_name">SlipNews</string>
+
+    <string name="nav_home">主页</string>
+
+    <string name="nav_favorite">收藏</string>
+
+    <string name="nav_history">历史</string>
+
+    <string name="nav_settings">设置</string>
+
+    <string name="nav_about">关于</string>
+
+    <!--tabName-->
+
+    <string name="title_activity_zhihuDaily">知乎日报</string>
+
+    <string name="title_activity_guokr_read">果壳精选</string>
+
+    <string name="title_activity_douban">豆瓣一刻</string>
+
+    <string name="positive">确定</string>
+
+    <string name="negative">取消</string>
+
+
+    <string name="title_activity_read">阅读</string>
+
+
+    <string name="loading_more">正在加载…</string>
+
+    <string name="loaded_failed">加载失败!</string>
+
+    <string name="retry">重试</string>
+
+    <string name="copied_to_clipboard">复制成功</string>
+
+    <string name="copied_to_clipboard_failed">复制失败</string>
+
+    <string name="added_to_bookmarks">已添加到收藏</string>
+
+    <string name="deleted_from_bookmarks">已从收藏中删除</string>
+
+    <string name="feel_lucky">随便看看</string>
+
+    <string name="feel_lucky_short">随便看看</string>
+
+    <string name="search_bookmarks">搜索收藏</string>
+
+    <string name="check_bookmarks">查看收藏</string>
+
+    <!--bottom sheet list-->
+
+
+    <string name="action_add_to_bookmarks">添加到收藏</string>
+
+    <string name="action_delete_from_bookmarks">取消收藏</string>
+
+    <string name="action_copy_link">复制链接</string>
+
+    <string name="action_open_in_browser">在浏览器中打开</string>
+
+    <string name="action_copy_text">复制内容文本</string>
+
+    <string name="action_share_as_text">作为文本分享</string>
+
+    <!--main menu-->
+
+    <!--navigation view menu end-->
+
+
+    <!--activity关于-->
+
+
+    <string name="version">版本:beta</string>
+
+
+    <string name="feedback">反馈Bug / 建议</string>
+
+
+    <string name="device_model">设备型号:</string>
+
+    <string name="sdk_version">SDK版本:</string>
+
+    <string name="no_mail_app">没有找到邮件类App</string>
+
+    <string name="no_app_store_found">没有市场类App</string>
+
+    <string name="no_browser_found">没有安装浏览器</string>
+
+    <string name="author">作者</string>
+
+    <string name="author_name">邓方成</string>
+
+    <string name="author_email">dfc3333@outlook.com</string>
+
+    <string name="author_description">江西,南昌</string>
+
+    <string name="follow_me_on_github">在GitHub关注我</string>
+
+    <string name="support">支持</string>
+
+    <string name="github_url">https://github.com/dttbd</string>
+
+    <string name="open_source_license">开源许可</string>
+
+    <string name="easter_egg">彩蛋</string>
+
+    <string name="easter_egg_content">点我名字这么多次， 你一定是喜欢我!</string>
+
+    <string name="sure">确定</string>
+
+    <string name="yes">是的</string>
+
+    <!--activity关于 end-->
+
+
+    <!--settings_preference_fragment-->
+
+
+    <string name="basic_settings">基本设置</string>
+
+    <string name="no_picture_mode">无图模式</string>
+
+    <string name="no_picture_mode_description">阅读时不再加载图片</string>
+
+    <string name="in_app_browser">使用内置浏览器</string>
+
+    <string name="in_app_browser_description">应用内查看链接</string>
+
+    <string name="time_of_saving_articles">文章保存时间</string>
+
+    <string name="other_settings">其他设置</string>
+
+    <string name="clear_image_cache">清除图片缓存</string>
+
+    <string name="clear_image_cache_successfully">清理成功</string>
+
+    <!--setting-->
+
+
+    <string name="network_error">网络走丢了…点击重试</string>
+
+    <string name="refresh">刷新</string>
+</resources>
