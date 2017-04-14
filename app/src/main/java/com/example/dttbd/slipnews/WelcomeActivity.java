@@ -13,15 +13,21 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.example.dttbd.slipnews.util.HttpUtil;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+import static com.example.dttbd.slipnews.util.Api.ZHIHU_IMAGE;
+
 public class WelcomeActivity extends AppCompatActivity {
 
-    private ImageView welcomeImage;
+    private ImageView welcomeImage;//获取首页图片实例
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,7 @@ public class WelcomeActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String welcomePic = prefs.getString("welcome_pic", null);
         if (welcomePic != null) {
+            loadWelcomePic();
             Glide.with(this).load(welcomePic).into(welcomeImage);
         } else {
             loadWelcomePic();
@@ -68,10 +75,13 @@ public class WelcomeActivity extends AppCompatActivity {
         thread.start();
     }
 
-    //获取图片
+    //获取知乎首页壁纸
     private void loadWelcomePic() {
-        String requestPic = "http://guolin.tech/api/bing_pic";
-        HttpUtil.sendOkHttpRequest(requestPic, new Callback() {
+
+        //知乎首页壁纸json API
+        final String imgUrl = ZHIHU_IMAGE;
+
+        HttpUtil.sendOkHttpRequest(imgUrl, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
@@ -80,16 +90,25 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String welcomePic = response.body().string();
-                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(WelcomeActivity.this).edit();
-                editor.putString("welcome_pic", welcomePic);
-                editor.apply();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Glide.with(WelcomeActivity.this).load(welcomePic).into(welcomeImage);
+                        try {
+                            JSONObject data1 = new JSONObject(welcomePic);
+                            JSONArray Creatives = data1.optJSONArray("creatives");
+                            JSONObject data2 = Creatives.getJSONObject(0);
+                            String url = data2.getString("url");
+                            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(WelcomeActivity.this).edit();
+                            editor.putString("welcome_pic", url);
+                            editor.apply();
+                            Glide.with(WelcomeActivity.this).load(url).into(welcomeImage);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
             }
         });
     }
+
 }

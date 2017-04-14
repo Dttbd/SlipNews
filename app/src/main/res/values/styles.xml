@@ -9,4 +9,6 @@
         <item name="elevation">0dp</item>
     </style>
 
+    <style name="NewsDetailsTheme" parent="AppTheme"></style>
+
 </resources>
