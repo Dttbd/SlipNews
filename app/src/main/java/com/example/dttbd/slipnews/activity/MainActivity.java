@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
@@ -17,6 +18,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
     private Cursor cursor;//游标
     private TextView noRecord;//提示历史记录
     private Toolbar toolbar;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         initMain();
 
         //获取NavigationView实例
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setCheckedItem(R.id.nav_home);//将主页项默认选中
         //实例化主页抽屉布局
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -104,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                         //下拉刷新监听
                         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
                         swipeRefreshLayout.setEnabled(true);
-                        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
+                        swipeRefreshLayout.setColorSchemeResources(R.color.textColorPrimary);
                         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                             @Override
                             public void onRefresh() {
@@ -179,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
         //下拉刷新监听
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
         swipeRefreshLayout.setEnabled(true);
-        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
+        swipeRefreshLayout.setColorSchemeResources(R.color.textColorPrimary);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -236,7 +239,14 @@ public class MainActivity extends AppCompatActivity {
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
             case R.id.brightness:
-                Toast.makeText(this, "You clickes brightness", Toast.LENGTH_SHORT).show();
+                int mode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+                if(mode == Configuration.UI_MODE_NIGHT_YES) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                } else if (mode == Configuration.UI_MODE_NIGHT_NO) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }
+                navigationView.setCheckedItem(R.id.nav_home);
+                recreate();
                 break;
             default:
         }
