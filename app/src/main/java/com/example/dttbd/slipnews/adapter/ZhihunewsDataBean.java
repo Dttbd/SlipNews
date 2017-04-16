@@ -1,9 +1,10 @@
-package com.example.dttbd.slipnews;
+package com.example.dttbd.slipnews.adapter;
 
 import java.io.Serializable;
 
 /**
  * Created byDttbd
+ * 封装获取的新闻信息
  */
 
 public class ZhihunewsDataBean implements Serializable{

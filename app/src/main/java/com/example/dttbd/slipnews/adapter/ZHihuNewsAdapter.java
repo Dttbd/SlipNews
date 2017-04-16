@@ -1,4 +1,4 @@
-package com.example.dttbd.slipnews;
+package com.example.dttbd.slipnews.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.dttbd.slipnews.R;
 
 import java.util.ArrayList;
 import java.util.List;

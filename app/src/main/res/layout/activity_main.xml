@@ -51,6 +51,18 @@
 
         </android.support.v4.widget.SwipeRefreshLayout>
 
+        <TextView
+            android:id="@+id/noRecord"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="28sp"
+            android:text="暂无记录"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:gravity="center"
+            android:visibility="gone"/>
+
+
+
 
     </android.support.design.widget.CoordinatorLayout>
 

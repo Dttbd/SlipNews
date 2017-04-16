@@ -1,4 +1,4 @@
-package com.example.dttbd.slipnews;
+package com.example.dttbd.slipnews.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.example.dttbd.slipnews.R;
 import com.example.dttbd.slipnews.util.HttpUtil;
 
 import org.json.JSONArray;
@@ -56,18 +57,18 @@ public class WelcomeActivity extends AppCompatActivity {
         Thread thread = new Thread() {
             @Override
             public void run() {
-                int waitingTime = 3000; // ms
+                int waitingTime = 3000; //壁纸hold3秒
                 try {
                     while(waitingTime > 0) {
                         sleep(100);
-                        waitingTime -= 100; // 100ms per time
+                        waitingTime -= 100;
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
                     finish();
                     Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-                    startActivity(intent);  // enter the main activity finally
+                    startActivity(intent);  //进入MainActivity
                 }
             }
         };

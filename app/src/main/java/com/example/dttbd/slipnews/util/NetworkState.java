@@ -1,4 +1,4 @@
-package com.example.dttbd.slipnews;
+package com.example.dttbd.slipnews.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
