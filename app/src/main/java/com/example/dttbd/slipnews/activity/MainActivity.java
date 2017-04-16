@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                                 swipeRefreshLayout.setRefreshing(false);
                             }
                         });
+                        toolbar.setTitle(R.string.nav_favorite);
                         FavoriteFab();
                         displayAllFocus();
                         CheckNoFocusNews();
@@ -119,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_history:
                         displayAllHistory();
                         CheckNoHistory();
+                        toolbar.setTitle(R.string.nav_history);
                         mDrawerLayout.closeDrawers();
                         break;
                     case R.id.settings:
@@ -148,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
         //获取Toolbar实例，设置Toolbar为actionBar显示
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("主页");
+        toolbar.setTitle(R.string.nav_home);
         setSupportActionBar(toolbar);
         //设置HomeAsUp按钮功能为展开菜单功能
         ActionBar actionBar = getSupportActionBar();
