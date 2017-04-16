@@ -33,9 +33,11 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.dttbd.slipnews.R;
+import com.example.dttbd.slipnews.about.aboutActivity;
 import com.example.dttbd.slipnews.adapter.ZHihuNewsAdapter;
 import com.example.dttbd.slipnews.adapter.ZhihunewsDataBean;
 import com.example.dttbd.slipnews.db.MyOpenHelper;
+import com.example.dttbd.slipnews.setting.settingActivity;
 import com.example.dttbd.slipnews.util.DateFormatter;
 import com.example.dttbd.slipnews.util.HttpUtil;
 
@@ -124,10 +126,12 @@ public class MainActivity extends AppCompatActivity {
                         mDrawerLayout.closeDrawers();
                         break;
                     case R.id.settings:
-                        Toast.makeText(MainActivity.this, "set", Toast.LENGTH_SHORT).show();
+                        Intent settingIntent = new Intent(MainActivity.this, settingActivity.class);
+                        startActivity(settingIntent);
                         break;
                     case R.id.about:
-                        Toast.makeText(MainActivity.this, "about", Toast.LENGTH_SHORT).show();
+                        Intent aboutIntent = new Intent(MainActivity.this, aboutActivity.class);
+                        startActivity(aboutIntent);
                         break;
                     default:
                 }
@@ -194,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

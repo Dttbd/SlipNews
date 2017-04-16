@@ -23,7 +23,6 @@
                 android:background="?attr/colorPrimary"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:layout_scrollFlags="scroll|enterAlways|snap"
                 />
 
         </android.support.design.widget.AppBarLayout>
@@ -41,7 +40,6 @@
             android:id="@+id/swipe_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="58dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <ListView

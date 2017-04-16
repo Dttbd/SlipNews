@@ -76,13 +76,13 @@ public class NewsDetails extends AppCompatActivity {
                     values.put("NewsFocusTitle",Title);
                     db.insert("NewsFocus", null, values);//插入关注的新闻数据
                     db.close();
-                    Toast.makeText(NewsDetails.this,"已关注",Toast.LENGTH_SHORT).show();}
+                    Toast.makeText(NewsDetails.this, R.string.added_to_bookmarks, Toast.LENGTH_SHORT).show();}
                 else {
                     favoriteFab.setImageResource(R.drawable.ic_favorite_white_24dp);
                     SQLiteDatabase db = helper.getReadableDatabase();
                     db.execSQL("delete from NewsFocus where NewsFocusId=?", new Object[]{NewsId});
                     db.close();
-                    Toast.makeText(NewsDetails.this,"取消关注",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewsDetails.this, R.string.deleted_from_bookmarks, Toast.LENGTH_SHORT).show();
                 }
             }
 
